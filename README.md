@@ -1,3 +1,3 @@
 # New Site
 
-My new site built entirely on NextJS.
+My new site built on NextJS and the Cosmic CMS.
