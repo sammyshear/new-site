@@ -1,4 +1,6 @@
 @import "../vars.scss";
+@import "../mixins.scss";
+
 
 header.bar {
   width: 100%;
@@ -11,37 +13,6 @@ header.bar {
   h2 {
     font-size: 24px;
     margin: 7px;
-  }
-
-  div.hr {
-    display: flex;
-    flex-direction: row;
-    width: calc(100% - 6px);
-
-    hr {
-      width: 100%;
-      position: relative;
-      top: 10px;
-      display: flex;
-      flex-direction: row;
-
-      &:after {
-        content: "";
-        border: solid black;
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        padding: 3px;
-        transform: rotate(-45deg);
-      }
-      &:before {
-        content: "";
-        border: solid black;
-        border-width: 0 3px 3px 0;
-        display: inline-block;
-        padding: 3px;
-        transform: rotate(135deg);
-      }
-    }
   }
 
   .btns {
@@ -58,13 +29,20 @@ header.bar {
       flex-direction: row;
       justify-content: center;
       place-items: center;
+      background-color: $gray-blue;
       margin: 0;
       width: 10%;
       height: 100%;
+      @include box-arrow(bottom, transparent);
+
+      &::after {
+        transition: all .4s ease-out;
+      }
 
       &:hover {
-        background-color: $beige;
         cursor: pointer;
+        @include box-arrow(bottom, $gray-blue, 15px);
+        transition: all 1s ease-out;
       }
     }
   }

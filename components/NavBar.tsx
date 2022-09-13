@@ -9,9 +9,6 @@ export default function NavBar() {
     return (
         <header className={styles.bar}>
             <h2>Sammy Shear</h2>
-            <div className={styles.hr}>
-                <hr />
-            </div>
             <div className={styles.btns}>
                 <button className={styles.navBtn} onClick={() => router.push("/")}>Home</button>
                 <button className={styles.navBtn} onClick={() => router.push("/about")}>About</button>
