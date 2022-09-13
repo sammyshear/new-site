@@ -2,33 +2,70 @@
 
 header.bar {
   width: 100%;
-  height: 40px;
+  height: 100px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
-  background-color: $light-blue;
+  place-items: center;
 
   h2 {
     font-size: 24px;
     margin: 7px;
-    color: white;
   }
 
-  button.navBtn {
-    background-color: $light-blue;
-    color: white;
-    border: none;
+  div.hr {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    place-items: center;
-    margin: 0;
-    width: 10%;
-    height: 100%;
+    width: calc(100% - 6px);
 
-    &:hover {
-      background-color: $dark-blue;
-      cursor: pointer;
+    hr {
+      width: 100%;
+      position: relative;
+      top: 10px;
+      display: flex;
+      flex-direction: row;
+
+      &:after {
+        content: "";
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(-45deg);
+      }
+      &:before {
+        content: "";
+        border: solid black;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  .btns {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+
+    place-content: center;
+
+    button.navBtn {
+      border: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      place-items: center;
+      margin: 0;
+      width: 10%;
+      height: 100%;
+
+      &:hover {
+        background-color: $beige;
+        cursor: pointer;
+      }
     }
   }
 }

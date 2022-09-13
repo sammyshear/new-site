@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "cosmicjs": "^4.2.10",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -16,8 +17,8 @@
   "devDependencies": {
     "@types/node": "^18.7.13",
     "@types/react": "^18.0.17",
-    "eslint-config-next": "12.2.5",
     "eslint": "8.22.0",
+    "eslint-config-next": "12.2.5",
     "prettier-eslint": "^15.0.1",
     "sass": "^1.54.5",
     "typescript": "^4.7.4"
