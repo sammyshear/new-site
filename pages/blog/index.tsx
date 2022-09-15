@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "styles/blog/Home.module.scss";
-import NavBar from "components/NavBar";
+import NavBar from "components/generic/NavBar";
 
 export default function BlogHome() {
     return (

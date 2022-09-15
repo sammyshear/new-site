@@ -1,0 +1,84 @@
+@import "../../vars";
+@import "../../mixins";
+
+
+header.bar {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  flex-direction: row;
+
+  place-items: flex-start;
+
+  h2 {
+    font-size: 14px;
+    font-family: Bahnschrift, serif;
+    width: auto;
+    margin: 2px 0;
+
+    @media (min-width: 500px) {
+        font-size: 18px;
+        margin: 5px 0;
+        width: 20%;
+    }
+
+    @media (min-width: 925px) {
+        font-size: 24px;
+        margin: 7px 0;
+        width: 20%;
+    }
+  }
+
+  .btns {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+
+    place-content: flex-end;
+    place-items: flex-end;
+
+    button.navBtn {
+      border: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      place-items: center;
+      background-color: white;
+      margin: 0;
+      width: 20%;
+      height: 100%;
+      @include box-arrow(bottom, transparent);
+      transition: all .4s ease-out;
+
+      &::after {
+        transition: all .4s ease-out;
+      }
+
+      &:hover {
+        cursor: pointer;
+        background-color: $gray-blue;
+        @include box-arrow(bottom, $gray-blue, 15px);
+      }
+
+      &.curBtn {
+        color: $dark-blue;
+        text-decoration: underline;
+      }
+
+      &.nCurBtn {
+        border: none;
+      }
+
+      @media (min-width: 500px) {
+        width: 15%;
+      }
+
+      @media (min-width: 925px) {
+        width: 10%;
+      }
+    }
+  }
+}
