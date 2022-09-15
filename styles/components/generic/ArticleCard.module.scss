@@ -1,0 +1,17 @@
+@import "../../vars.scss";
+@import "../../mixins.scss";
+
+div.card {
+  border: 1px $dark-blue solid;
+  min-width: 240px;
+  max-width: 360px;
+  aspect-ratio: 1;
+  height: 100%;
+  padding: 4px;
+  margin: 6px 4px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  place-content: center;
+}

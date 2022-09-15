@@ -8,6 +8,7 @@ ul.rotary {
   width: 100%;
   overflow-x: hidden;
   display: inline-flex;
+  place-content: center;
   flex-direction: row;
 }
 
