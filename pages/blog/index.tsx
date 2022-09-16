@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "styles/blog/Home.module.scss";
 import NavBar from "components/generic/NavBar";
+import Footer from "components/generic/Footer";
 import Cosmic from "cosmicjs";
 import ArticleCard from "components/generic/ArticleCard";
 
@@ -15,14 +16,15 @@ export default function BlogHome(props) {
         <>
             <NavBar/>
             <section className={styles.blogHeader}>
-                <h3>{props.home[0].title}</h3>
+                <h3>Blog {props.home[0].title}</h3>
                 <span dangerouslySetInnerHTML={{ __html: props.home[0].content}} />
             </section>
-            <main>
+            <main className={styles.articles}>
                 {props.articles.map((article, i) => {
                     return (<ArticleCard title={article.title} slug={article.slug} key={i}/>);
                 })}
             </main>
+            <Footer />
         </>
     );
 }

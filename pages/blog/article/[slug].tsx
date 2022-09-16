@@ -3,6 +3,7 @@ import styles from "styles/blog/Article.module.scss";
 import Cosmic from "cosmicjs";
 import LatestArticles from "components/LatestArticles";
 import NavBar from "components/generic/NavBar";
+import Footer from "components/generic/Footer";
 
 
 const api = Cosmic();
@@ -17,26 +18,30 @@ export interface IArticle {
     slug: string;
 }
 
-export default function ArticlePage({article}) {
+export default function ArticlePage(props) {
     return (
         <>
             <NavBar />
             <header className={styles.articleHeader}>
-                <h3>{article.title}</h3>
+                <h3>{props.article.title}</h3>
             </header>
-            <article className={styles.main} dangerouslySetInnerHTML={{__html: article.content}}/>
-            <LatestArticles/>
+            <article className={styles.main} dangerouslySetInnerHTML={{__html: props.article.content}}/>
+            <LatestArticles articles={props.articles} />
+            <Footer/>
         </>
     );
 }
 
 export async function getStaticProps({params}) {
     const articlesData = await bucket.objects.find({type: "article"}).props("slug,title,content,metadata");
-    const article = await articlesData.objects.find({slug: params.slug})[0];
+    const articleData = await bucket.objects.find({type: "article", slug: params.slug}).props("slug,title,content,metadata");
+    const article = await articleData.objects[0];
+    const articles = await articlesData.objects;
 
     return {
         props: {
             article,
+            articles
         },
     };
 }

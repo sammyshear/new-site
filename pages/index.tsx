@@ -1,9 +1,17 @@
 import React from "react";
 import styles from "styles/Home.module.scss";
 import NavBar from "components/generic/NavBar";
+import Footer from "components/generic/Footer";
 import LatestArticles from "components/LatestArticles";
+import Cosmic from "cosmicjs";
 
-export default function Home() {
+const api = Cosmic();
+const bucket = api.bucket({
+    slug: process.env.COSMIC_BUCKET_SLUG_TESTING,
+    read_key: process.env.COSMIC_BUCKET_READ_KEY_TESTING
+});
+
+export default function Home({articles}) {
     return (
         <>
             <NavBar/>
@@ -15,7 +23,19 @@ export default function Home() {
                     my own blog. Thanks for stopping by.
                 </p>
             </main>
-            <LatestArticles/>
+            <LatestArticles articles={articles} />
+            <Footer />
         </>
     )
+}
+
+export async function getStaticProps() {
+    const articlesData = await bucket.objects.find({type: "article"}).props("slug,title,content,metadata").limit(10);
+    const articles = await articlesData.objects;
+
+    return {
+        props: {
+            articles,
+        },
+    };
 }

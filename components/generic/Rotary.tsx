@@ -1,12 +1,17 @@
 import React, {useState} from "react";
 import ArticleCard, {CardProps} from "./ArticleCard";
 import styles from "styles/components/generic/Rotary.module.scss";
+import {IArticle} from "pages/blog/article/[slug]";
 
 type direction = "previous" | "next";
 
-export default function Rotary() {
-    const [arr, setArr] = useState<Array<CardProps>>();git 
-    let initialState;
+type RotaryProps = {
+    articles: Array<Object>
+}
+
+export default function Rotary({articles}: RotaryProps) {
+    const [arr, setArr] = useState<Array<Object>>(articles);
+    let initialState = [...arr];
 
     const rotateFunc = (dir: direction) => {
         if (dir === "previous") {
@@ -24,8 +29,8 @@ export default function Rotary() {
     return (
         <div className={styles.rotContainer}>
             <ul className={styles.rotary}>
-                {initialState.splice(-3).map((card, i) => {
-                    return <ArticleCard title={card.title} blurb={card.blurb} slug={card.slug} key={i}/>
+                {initialState.splice(-3).map((card: IArticle, i) => {
+                    return <ArticleCard title={card.title} slug={card.slug} key={i} />
                 })}
             </ul>
             <div className={styles.controls}>
