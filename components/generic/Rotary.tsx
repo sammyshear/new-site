@@ -5,50 +5,8 @@ import styles from "styles/components/generic/Rotary.module.scss";
 type direction = "previous" | "next";
 
 export default function Rotary() {
-    const [arr, setArr] = useState<Array<CardProps>>([
-        {
-            title: "Test",
-            blurb: "test 1",
-            slug: "test-1"
-        },
-        {
-            title: "Test",
-            blurb: "test 2",
-            slug: "test-2"
-        },
-        {
-            title: "Test",
-            blurb: "test 3",
-            slug: "test-3"
-        },
-        {
-            title: "Test",
-            blurb: "test 4",
-            slug: "test-4"
-        },
-        {
-            title: "Test",
-            blurb: "test 5",
-            slug: "test-5"
-        },
-        {
-            title: "Test",
-            blurb: "test 6",
-            slug: "test-6"
-        },
-        {
-            title: "Test",
-            blurb: "test 7",
-            slug: "test-7"
-        },
-        {
-            title: "Test",
-            blurb: "test 8",
-            slug: "test-8"
-        },
-    ]);
-
-    let initialState = [...arr];
+    const [arr, setArr] = useState<Array<CardProps>>();git 
+    let initialState;
 
     const rotateFunc = (dir: direction) => {
         if (dir === "previous") {
